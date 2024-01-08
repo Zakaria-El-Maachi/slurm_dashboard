@@ -45,10 +45,14 @@ Build an interactive web dashboard to display the data.
   - Code the dashboard using Dash.
   - Test and refine the user interface.
 
-## 4. Creating the README.md File
+## Launching the Application
 
-### TODO: Key Elements To Add
-- **Project Overview**: Explain the purpose and scope.
-- **Technologies Used**: List technologies and reasons for choice.
-- **Setup and Installation**: Guide on setup and running.
-- **Usage Guide**: How to use the dashboard, with visuals.
+### Steps to Run the Dashboard
+- **Navigate to Project Directory**:
+  - Open a terminal.
+  - The root directory should be *slurm_dashboard* and not *project*.
+- **Run the Dashboard**:
+  - Execute the dashboard application by running `python dashboard.py`.
+  - Access the web interface as instructed in the output from the command.
+
+  ![UI](image.png)

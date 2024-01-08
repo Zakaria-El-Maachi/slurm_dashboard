@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Define SSH connection and credentials
-SSH_HOST="elmaachi.zakaria@simlab-cluster.um6p.ma"
+SSH_HOST="mohieddine.farid@simlab-cluster.um6p.ma"
 SSH_PORT=8050
 
 # Establish an SSH connection and set up port forwarding
 ssh -L $SSH_PORT:localhost:$SSH_PORT $SSH_HOST << 'EOF'
   
 # Navigate to the project directory
-cd /home/elmaachi.zakaria/project || exit
+cd /home/mohieddine.farid/project || exit
 
 # Load necessary modules
 module purge

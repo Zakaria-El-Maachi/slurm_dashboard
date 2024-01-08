@@ -59,7 +59,9 @@ app.layout = dbc.Container([
                 options=[
                     {'label': 'CPU Usage', 'value': 'cpu_usage'},
                     {'label': 'Time Usage', 'value': 'time_usage'},
-                    {'label': 'Total Time per Account', 'value': 'total_time_account'}
+                    {'label': 'Daily CPU Times', 'value': 'daily_cpu_times'},
+                    {'label': 'Total Time per Account', 'value': 'total_time_account'},
+                    {'label': 'Top Users', 'value': 'top_users'}
                 ],
                 value='cpu_usage',
                 clearable=False
@@ -94,27 +96,20 @@ def update_graph(selected_user, start_date, end_date, selected_metric):
         total_time = getTotalTimeUser(selected_user)
         fig = px.bar(x=[selected_user], y=[total_time], labels={'x': 'User', 'y': 'Total Time (Hours)'},
                      title='Total Time Usage per User (Hours)')
-    #      # Integration of other functions
-    # elif selected_metric == 'daily_cpu_times':
-    #     # Apply the calculate_daily_cpu_times function to each row of the filtered DataFrame
-    #     daily_cpu_times = filtered_df.apply(calculate_daily_cpu_times, axis=1)
-
-    #     # Aggregate the results for plotting (this might require additional processing)
-    #     # For example, summing up the CPU times for each day
-    #     aggregated_data = daily_cpu_times.sum()
-
-    #     # Create the figure using Plotly Express
-    #     fig = px.bar(aggregated_data, x=aggregated_data.index, y='CPUTimeSeconds', 
-    #                  title='Daily CPU Times for User')
+         # Integration of other functions
+    elif selected_metric == 'daily_cpu_times':
+        # Assuming calculate_daily_cpu_times returns a DataFrame suitable for plotting
+        daily_data = calculate_daily_cpu_times(filtered_df)
+        fig = px.line(daily_data, x='Date', y='CPUTimeSeconds', title='Daily CPU Times for User')
 
     elif selected_metric == 'total_time_account':
         # Assuming TotalTimeAccountAll returns a DataFrame suitable for plotting
         account_data = TotalTimeAccountAll()
         fig = px.pie(account_data, values='CPUTimeSeconds', names=account_data.index, title='Total Time per Account')
-    #     # Integration of topUsers function
-    # elif selected_metric == 'top_users':
-    #     top_users_data = topUsers(df, start_date, end_date).head(20)  # Get top 20 users
-    #     fig = px.bar(top_users_data, x=top_users_data.index, y='CPUTimeSeconds', title='Top 20 Users')
+        # Integration of topUsers function
+    elif selected_metric == 'top_users':
+        top_users_data = topUsers(df, start_date, end_date).head(20)  # Get top 20 users
+        fig = px.bar(top_users_data, x=top_users_data.index, y='CPUTimeSeconds', title='Top 20 Users')
 
     return fig
 

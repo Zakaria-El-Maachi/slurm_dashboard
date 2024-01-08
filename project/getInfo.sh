@@ -9,6 +9,4 @@ STARTTIME=$(date --date="yesterday" +%Y-%m-%d)
 ENDTIME=$(date +%Y-%m-%d)
 
 # Collect data using sacct
-sacct -P -o JobID,User,Account,Partition,State,AllocCPUS,Elapsed,Start,End,NCPUS,NNodes,TotalCPU,UserCPU,SystemCPU,CPUTime --allusers --duplicates --starttime $STARTTIME --endtime $ENDTIME > $OUTPUT_FILE
-
-
+sacct -P -o JobID,User,Account,Partition,State,AllocCPUS,Elapsed,Start,End,NCPUS,NNodes,TotalCPU,UserCPU,SystemCPU,CPUTime,AllocGRES --allusers --duplicates --starttime $STARTTIME --endtime $ENDTIME > $OUTPUT_FILE
