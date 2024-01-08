@@ -27,32 +27,19 @@ Process and analyze the collected data.
 - **Data Loading**: Write Python code to load data.
 - **Data Processing**: Use Pandas for cleaning, sorting, and aggregating data.
 
-## 3. Creating a Dashboard with Dash
-
-### Objective
-Build an interactive web dashboard to display the data.
-
-### Tools
-- Dash framework
-- Plotly for charting
-
-### Steps
-- **Learn Dash**: Get familiar with Dash components and layout.
-- **Designing the Dashboard**:
-  - Plan layout and interactive elements.
-  - Choose charts (bar, pie, etc.) for data representation.
-- **Implementing the Dashboard**:
-  - Code the dashboard using Dash.
-  - Test and refine the user interface.
-
 ## Launching the Application
 
 ### Steps to Run the Dashboard
 - **Navigate to Project Directory**:
   - Open a terminal.
-  - The root directory should be *slurm_dashboard* and not *project*.
+  - The root directory should be `slurm_dashboard` and not `project`.
 - **Run the Dashboard**:
   - Execute the dashboard application by running `python dashboard.py`.
   - Access the web interface as instructed in the output from the command.
 
   ![UI](image.png)
+
+
+## Remark
+
+Note that other relevant data analysis was conducted in  `analysis.ipynb`. However, integrating them to the dashboard is to be done.
